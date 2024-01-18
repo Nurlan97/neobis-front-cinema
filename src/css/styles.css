@@ -1,0 +1,420 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: #1a191f;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+.header__title > a {
+  color: #ffffff;
+  cursor: pointer;
+}
+.header__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.header__list-item > a {
+  color: #ffffff;
+  font-size: 14px;
+  position: relative;
+}
+.header__list-item > a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -10px;
+  left: 0;
+  background: #dd0707;
+  transition: 0.5s;
+}
+.header__list-item > a:hover::before {
+  width: 100%;
+}
+.header__input {
+  padding: 10px;
+  border: 2px solid #1a191f;
+  border-radius: 5px;
+}
+.header__input:focus {
+  outline: none;
+}
+
+.main__movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.main__title {
+  color: red;
+}
+.main__movie {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.main__movie_img_container {
+  height: 375px;
+  cursor: pointer;
+}
+.main__movie_img_container:hover {
+  background: #000;
+  opacity: 0.5;
+}
+.main__movie_img {
+  width: 100%;
+  height: 100%;
+}
+.main__movie_title {
+  font-size: 16px;
+  color: #ffffff;
+  width: 185px;
+}
+.main__movie_category {
+  font-size: 14px;
+  color: #ffd80e;
+}
+.main__movie_rating {
+  position: absolute;
+  color: #ffffff;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: #1a191f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.main__movie_rating_green {
+  border: 2px solid green;
+}
+.main__movie_rating_orange {
+  border: 2px solid orange;
+}
+.main__movie_rating_red {
+  border: 2px solid red;
+}
+.main__movie_card_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.main__movie_liked_btn {
+  color: red;
+  cursor: pointer;
+}
+
+.topAnticipated__title {
+  color: red;
+}
+.topAnticipated__movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.topAnticipated__title {
+  color: red;
+}
+.topAnticipated__movie {
+  width: 250px;
+  margin: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.topAnticipated__movie_img_container {
+  height: 375px;
+  cursor: pointer;
+}
+.topAnticipated__movie_img_container:hover {
+  background: #000;
+  opacity: 0.5;
+}
+.topAnticipated__movie_img {
+  width: 100%;
+  height: 100%;
+}
+.topAnticipated__movie_title {
+  font-size: 16px;
+  color: #ffffff;
+  width: 185px;
+}
+.topAnticipated__movie_category {
+  font-size: 14px;
+  color: #ffd80e;
+}
+.topAnticipated__movie_rating {
+  position: absolute;
+  color: #ffffff;
+  top: 10px;
+  left: 10px;
+  border-radius: 59%;
+  width: 36px;
+  height: 36px;
+  background: #1a191f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.topAnticipated__movie_rating_green {
+  border: 2px solid green;
+}
+.topAnticipated__movie_rating_orange {
+  border: 2px solid orange;
+}
+.topAnticipated__movie_rating_red {
+  border: 2px solid red;
+}
+.topAnticipated__movie_card_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.topAnticipated__movie_liked_btn {
+  color: red;
+  cursor: pointer;
+}
+
+.topBestMovies__movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.topBestMovies__title {
+  color: red;
+}
+.topBestMovies__movie {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.topBestMovies__movie_img_container {
+  height: 375px;
+  cursor: pointer;
+}
+.topBestMovies__movie_img_container:hover {
+  background: #000;
+  opacity: 0.5;
+}
+.topBestMovies__movie_img {
+  width: 100%;
+  height: 100%;
+}
+.topBestMovies__movie_title {
+  font-size: 16px;
+  color: #ffffff;
+  width: 185px;
+}
+.topBestMovies__movie_category {
+  font-size: 14px;
+  color: #ffd80e;
+}
+.topBestMovies__movie_rating {
+  position: absolute;
+  color: #ffffff;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: #1a191f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.topBestMovies__movie_rating_green {
+  border: 2px solid green;
+}
+.topBestMovies__movie_rating_orange {
+  border: 2px solid orange;
+}
+.topBestMovies__movie_rating_red {
+  border: 2px solid red;
+}
+.topBestMovies__movie_card_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.topBestMovies__movie_liked_btn {
+  color: red;
+  cursor: pointer;
+}
+
+.digitalReleases__movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.digitalReleases__title {
+  color: red;
+}
+.digitalReleases__movie {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.digitalReleases__movie_img_container {
+  height: 375px;
+  cursor: pointer;
+}
+.digitalReleases__movie_img_container:hover {
+  background: #000;
+  opacity: 0.5;
+}
+.digitalReleases__movie_img {
+  width: 100%;
+  height: 100%;
+}
+.digitalReleases__movie_title {
+  font-size: 16px;
+  color: #ffffff;
+  width: 185px;
+}
+.digitalReleases__movie_category {
+  font-size: 14px;
+  color: #ffd80e;
+}
+.digitalReleases__movie_rating {
+  position: absolute;
+  color: #ffffff;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: #1a191f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.digitalReleases__movie_rating_green {
+  border: 2px solid green;
+}
+.digitalReleases__movie_rating_orange {
+  border: 2px solid orange;
+}
+.digitalReleases__movie_rating_red {
+  border: 2px solid red;
+}
+.digitalReleases__movie_card_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.digitalReleases__movie_liked_btn {
+  color: red;
+  cursor: pointer;
+}
+
+.saved__movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.saved__title {
+  color: red;
+}
+.saved__movie {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.saved__movie_img_container {
+  height: 375px;
+  cursor: pointer;
+}
+.saved__movie_img_container:hover {
+  background: #000;
+  opacity: 0.5;
+}
+.saved__movie_img {
+  width: 100%;
+  height: 100%;
+}
+.saved__movie_title {
+  font-size: 16px;
+  color: #ffffff;
+  width: 185px;
+}
+.saved__movie_category {
+  font-size: 14px;
+  color: #ffd80e;
+}
+.saved__movie_rating {
+  position: absolute;
+  color: #ffffff;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: #1a191f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.saved__movie_rating_green {
+  border: 2px solid green;
+}
+.saved__movie_rating_orange {
+  border: 2px solid orange;
+}
+.saved__movie_rating_red {
+  border: 2px solid red;
+}
+.saved__movie_card_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.saved__movie_liked_btn {
+  color: red;
+  cursor: pointer;
+}/*# sourceMappingURL=styles.css.map */

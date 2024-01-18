@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    list-style: none;
+
+
+}
+
+body{
+    background: #1a191f;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+// .darkened{
+//     background: #000;
+//     opacity: 0.5;
+// }
+
+@import './header.scss';
+@import './main.scss';
+@import '../../pages/topAnticipated/topAnticipated';
+@import '../../pages/TopBestMovies/topBestMovies';
+@import '../../pages/digitalReleases/digitalReleases';
+@import '../../pages/saved/saved';
