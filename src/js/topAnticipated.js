@@ -33,7 +33,6 @@ const onDOMContentLoaded = () => {
         // console.log(data)
         
         data.items.forEach(el => {
-            console.log(el)
             const movie = document.createElement('div');
             movie.classList.add('topAnticipated__movie');
             movie.innerHTML = `
@@ -52,11 +51,51 @@ const onDOMContentLoaded = () => {
                     <!-- <i class="fa-solid fa-heart topAnticipated__movie_liked_btn"></i> --> 
                 </div>
             `
+
+            const saved_btn = movie.querySelector('.topAnticipated__movie_liked_btn');
+            saved_btn.addEventListener('click',  () => {
+                addToFavorite(el)
+            })
+            // console.log(saved_btn)
+
+            
+
             movies.appendChild(movie)
         })
 
+        // console.log(data)
 
     }
+
+    function addToFavorite(movie){
+        let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'))
+
+        // console.log(favoriteMovies)
+
+        const isFavorite = favoriteMovies.some(el => {
+            let movie_id = movie.kinopoiskId || movie.filmId;
+            let favoriteFilm_id = el.kinopoiskId || el.filmId;
+            return movie_id === favoriteFilm_id
+        })
+
+        if(!isFavorite) {
+            favoriteMovies.push(movie)
+        } else {
+            favoriteMovies.filter(el => {
+                let movie_id = movie.kinopoiskId || movie.filmId;
+                let favoriteFilm_id = el.kinopoiskId || el.filmId;
+                return movie_id !== favoriteFilm_id
+            })
+        }
+
+        localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
+    }
+
+    
+    return isFavorite;
+
+    
+
 }
 
 

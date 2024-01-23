@@ -1,3 +1,5 @@
+// import { showMovies } from "./favourites_function.js";
+
 const onDOMContentLoaded = () => {
 
     const currentDate = new Date();
@@ -21,7 +23,7 @@ const onDOMContentLoaded = () => {
             // console.log(content)
 
             showCurrentMonthMovieReleases(content)
-            
+
         } catch (err) {
             console.log(err)
         }
@@ -39,18 +41,12 @@ const onDOMContentLoaded = () => {
         //     .catch(err => console.log(err))
     }
 
+
+
     fetchCurrentMonthMovieReleases()
 
     const showCurrentMonthMovieReleases = (data) => {
         const movies = document.querySelector('.main__movies');
-        const liked_btn = document.createElement('img')
-        liked_btn.classList.add('main__movie_liked_btn');
-        liked_btn.innerHTML = '<i class="fa-regular fa-heart main__movie_liked_btn"></i>'
-
-        const liked_btn_clicked = document.createElement('img');
-        liked_btn_clicked.classList.add('main__movie_liked_btn_clicked')
-        liked_btn_clicked.innerHTML = '<i class="fa-solid fa-heart main__movie_liked_btn"></i>'
-
 
         data.items.forEach(el => {
             const movie = document.createElement('div');
@@ -72,18 +68,52 @@ const onDOMContentLoaded = () => {
                 </div>
             `
             const saved_btn = movie.querySelector('.main__movie_liked_btn')
-            // console.log(saved_btn)
-            saved_btn.addEventListener('clicked', (el) => {
-                console.log(el.target)
-            })
+            saved_btn.addEventListener('click', () => {
+
+                const isAdded = addToFavorites(el); // временно
+                saved_btn.className = `fa-regular fa-heart main__movie_liked_btn ${isAdded ? 'added' : ''}`;// временно
+
             
+
+            })
+
+
 
             movies.appendChild(movie)
 
         })
 
-        // console.log(liked_btn)
+    
 
+
+    }
+
+    function addToFavorites(movie) {
+        let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies')) || [];
+        const isAlreadyFavorite = favoriteMovies.some(favMovie => {
+            // favMovie.kinopoiskId === movie.kinopoiskId
+            let movie_id = movie.kinopoiskId || movie.filmId
+            let favMovieId = favMovie.kinopoiskId || favMovie.filmId
+            return movie_id === favMovieId
+        });
+
+
+        if (!isAlreadyFavorite) {
+            favoriteMovies.push(movie);
+
+        } else {
+            favoriteMovies = favoriteMovies.filter(favMovie => {
+                let movie_id = movie.kinopoiskId || movie.filmId
+                let favMovieId = favMovie.kinopoiskId || favMovie.filmId
+                return movie_id !== favMovieId
+
+            });
+
+        }
+
+        localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+
+        return isAlreadyFavorite;
     }
 }
 
